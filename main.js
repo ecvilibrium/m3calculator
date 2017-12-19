@@ -16,7 +16,7 @@ function createWindow() {
     slashes: true
   }));
   // Open the Devtools.
-  win.webContents.openDevTools();
+  //win.webContents.openDevTools();
   //Emmited when the window is closed.
   win.on('closed', () => {
     win = null;

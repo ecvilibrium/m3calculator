@@ -10,21 +10,21 @@
   <div class="container">
     <div class="row">
 
-      <div class="col s3">
+      <div class="col s3 grey lighten-2">
         <!-- Grey navigation panel -->
         <div class="row">
           <div class="input-field col s10">
-            <input value="1" id="first_name2" type="text" class="validate">
-            <label class="active" for="first_name2">Suma Initiala</label>
+            <input value="1" id="sumaInit" type="text" class="validate" oninput="getInit()">
+            <label class="active" for="sumainitiala">Suma Initiala $</label>
           </div>
           <div class="input-field col s10">
-            <input value="85" id="first_name2" type="text" class="validate">
-            <label class="active" for="first_name2">Procente</label>
+            <input value="85" id="procente" type="text" class="validate" oninput="getInit()">
+            <label class="active" for="procente">Procente %</label>
           </div>
         </div>
       </div>
 
-      <div class="col s9">
+      <div class="col s9 blue lighten-5">
         <!-- Teal page content  -->
         <table class="centered">
           <thead>
@@ -39,73 +39,73 @@
 
           <tbody>
             <tr>
-              <td>Alvin</td>
-              <td>Alvin</td>
-              <td>Alvin</td>
-              <td>Eclair</td>
+              <td>1</td>
+              <td id="poz1col2"> - </td>
+              <td id="poz1col3">Alvin</td>
+              <td id="poz1col4"> - </td>
               <td>$0.87</td>
             </tr>
             <tr>
-              <td>Alvin</td>
+              <td>2</td>
               <td>Alvin</td>
               <td>Alan</td>
-              <td>Jellybean</td>
+              <td id="poz2col4">Jellybean</td>
               <td>$3.76</td>
             </tr>
             <tr>
-              <td>Alvin</td>
+              <td>3</td>
               <td>Alvin</td>
               <td>Jonathan</td>
-              <td>Lollipop</td>
+              <td id="poz3col4">Lollipop</td>
               <td>$7.00</td>
             </tr>
             <tr>
+              <td>4</td>
               <td>Alvin</td>
               <td>Alvin</td>
-              <td>Alvin</td>
-              <td>Eclair</td>
+              <td id="poz4col4">Eclair</td>
               <td>$0.87</td>
             </tr>
             <tr>
+              <td>5</td>
               <td>Alvin</td>
               <td>Alvin</td>
-              <td>Alvin</td>
-              <td>Eclair</td>
+              <td id="poz5col4">Eclair</td>
               <td>$0.87</td>
             </tr>
             <tr>
+              <td>6</td>
               <td>Alvin</td>
               <td>Alvin</td>
-              <td>Alvin</td>
-              <td>Eclair</td>
+              <td id="poz6col4">Eclair</td>
               <td>$0.87</td>
             </tr>
             <tr>
+              <td>7</td>
               <td>Alvin</td>
               <td>Alvin</td>
-              <td>Alvin</td>
-              <td>Eclair</td>
+              <td id="poz7col4">Eclair</td>
               <td>$0.87</td>
             </tr>
             <tr>
+              <td>8</td>
               <td>Alvin</td>
               <td>Alvin</td>
-              <td>Alvin</td>
-              <td>Eclair</td>
+              <td id="poz8col4">Eclair</td>
               <td>$0.87</td>
             </tr>
             <tr>
+              <td>9</td>
               <td>Alvin</td>
               <td>Alvin</td>
-              <td>Alvin</td>
-              <td>Eclair</td>
+              <td id="poz9col4">Eclair</td>
               <td>$0.87</td>
             </tr>
             <tr>
+              <td>10</td>
               <td>Alvin</td>
               <td>Alvin</td>
-              <td>Alvin</td>
-              <td>Eclair</td>
+              <td id="poz10col4">Eclair</td>
               <td>$0.87</td>
             </tr>
           </tbody>
@@ -113,6 +113,22 @@
       </div>
     </div>
   </div>
+
+  <script>
+  // var sumaInit = document.getElementById('sumaInit').value;
+  // document.getElementById('poz1col2').innerHTML = sumaInit;
+  window.load = getInit();
+  function getInit() {
+    var sumaInit = document.getElementById('sumaInit').value;
+    document.getElementById('poz1col2').innerHTML = sumaInit;
+    var procent = document.getElementById('procente').value;
+    document.getElementById('poz1col3').innerHTML = procent;
+
+    var poz1col4 = sumaInit * (procent / 100);
+    document.getElementById('poz1col4').innerHTML = poz1col4.toFixed(2);
+  }
+
+  </script>
 </body>
 
 </html>

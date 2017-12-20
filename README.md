@@ -1,2 +1,2 @@
 # m3calculator
-MManagement Algorithm
+M3Management Algorithm

@@ -14,7 +14,7 @@
         <!-- Grey navigation panel -->
         <div class="row">
           <div class="input-field col s10">
-            <input value="1" id="sumaInit" type="text" class="validate" oninput="getInit()">
+            <input value="1.18" id="sumaInit" type="text" class="validate" oninput="getInit()">
             <label class="active" for="sumainitiala">Suma Initiala $</label>
           </div>
           <div class="input-field col s10">
@@ -26,7 +26,7 @@
 
       <div class="col s9 blue lighten-5">
         <!-- Teal page content  -->
-        <table class="centered">
+        <table class="centered" id="mainT">
           <thead>
             <tr>
               <th>Nr</th>
@@ -41,72 +41,72 @@
             <tr>
               <td>1</td>
               <td id="poz1col2"> - </td>
-              <td id="poz1col3">Alvin</td>
+              <td id="poz1col3"> - </td>
               <td id="poz1col4"> - </td>
-              <td>$0.87</td>
+              <td id="poz1col5"> - </td>
             </tr>
             <tr>
               <td>2</td>
-              <td>Alvin</td>
-              <td>Alan</td>
-              <td id="poz2col4">Jellybean</td>
-              <td>$3.76</td>
+              <td id="poz2col2"> - </td>
+              <td id="poz2col3"> - </td>
+              <td id="poz2col4"> - </td>
+              <td id="poz2col5"> - </td>
             </tr>
             <tr>
               <td>3</td>
-              <td>Alvin</td>
-              <td>Jonathan</td>
-              <td id="poz3col4">Lollipop</td>
-              <td>$7.00</td>
+              <td id="poz3col2"> - </td>
+              <td id="poz3col3"> - </td>
+              <td id="poz3col4"> - </td>
+              <td id="poz3col5"> - </td>
             </tr>
             <tr>
               <td>4</td>
-              <td>Alvin</td>
-              <td>Alvin</td>
-              <td id="poz4col4">Eclair</td>
-              <td>$0.87</td>
+              <td id="poz4col2"> - </td>
+              <td id="poz4col3"> - </td>
+              <td id="poz4col4"> - </td>
+              <td id="poz4col5"> - </td>
             </tr>
             <tr>
               <td>5</td>
-              <td>Alvin</td>
-              <td>Alvin</td>
-              <td id="poz5col4">Eclair</td>
-              <td>$0.87</td>
+              <td id="poz5col2"> - </td>
+              <td id="poz5col3"> - </td>
+              <td id="poz5col4"> - </td>
+              <td id="poz5col5"> - </td>
             </tr>
             <tr>
               <td>6</td>
-              <td>Alvin</td>
-              <td>Alvin</td>
-              <td id="poz6col4">Eclair</td>
-              <td>$0.87</td>
+              <td id="poz6col2"> - </td>
+              <td id="poz6col3"> - </td>
+              <td id="poz6col4"> - </td>
+              <td id="poz6col5"> - </td>
             </tr>
             <tr>
               <td>7</td>
-              <td>Alvin</td>
-              <td>Alvin</td>
-              <td id="poz7col4">Eclair</td>
-              <td>$0.87</td>
+              <td id="poz7col2"> - </td>
+              <td id="poz7col3"> - </td>
+              <td id="poz7col4"> - </td>
+              <td id="poz7col5"> - </td>
             </tr>
             <tr>
               <td>8</td>
-              <td>Alvin</td>
-              <td>Alvin</td>
-              <td id="poz8col4">Eclair</td>
-              <td>$0.87</td>
+              <td id="poz8col2"> - </td>
+              <td id="poz8col3"> - </td>
+              <td id="poz8col4"> - </td>
+              <td id="poz8col5"> - </td>
             </tr>
             <tr>
               <td>9</td>
-              <td>Alvin</td>
-              <td>Alvin</td>
-              <td id="poz9col4">Eclair</td>
-              <td>$0.87</td>
+              <td id="poz9col2"> - </td>
+              <td id="poz9col3"> - </td>
+              <td id="poz9col4"> - </td>
+              <td id="poz9col5"> - </td>
             </tr>
             <tr>
               <td>10</td>
-              <td>Alvin</td>
-              <td>Alvin</td>
-              <td id="poz10col4">Eclair</td>
-              <td>$0.87</td>
+              <td id="poz10col2"> - </td>
+              <td id="poz10col3"> - </td>
+              <td id="poz10col4"> - r</td>
+              <td id="poz10col5"> - </td>
             </tr>
           </tbody>
         </table>
@@ -115,17 +115,35 @@
   </div>
 
   <script>
-  // var sumaInit = document.getElementById('sumaInit').value;
-  // document.getElementById('poz1col2').innerHTML = sumaInit;
+
   window.load = getInit();
   function getInit() {
+    //position 1
     var sumaInit = document.getElementById('sumaInit').value;
     document.getElementById('poz1col2').innerHTML = sumaInit;
-    var procent = document.getElementById('procente').value;
-    document.getElementById('poz1col3').innerHTML = procent;
-
-    var poz1col4 = sumaInit * (procent / 100);
+    document.getElementById('poz1col3').innerHTML = sumaInit;
+    var procent = (document.getElementById('procente').value) / 100;
+    var poz1col4 = sumaInit * procent;
     document.getElementById('poz1col4').innerHTML = poz1col4.toFixed(2);
+    var poz1col5 = poz1col4;
+    document.getElementById('poz1col5').innerHTML = '$ ' + poz1col5.toFixed(2);
+    //complete col4allpoz
+    var rows = document.getElementById('mainT').getElementsByTagName("tbody")[0].getElementsByTagName("tr").length;
+    for (var i = 2; i < rows+1; i++) {
+      document.getElementById('poz'+ i +'col4').innerHTML = poz1col4.toFixed(2);;
+    }
+
+    for (var i = 1; i < 10; i++) {
+      //position 2-10
+      var poz4col3 = document.getElementById('poz'+ i +'col3').innerText;
+      var poz5col4 = document.getElementById('poz'+(i+1)+'col4').innerText;
+      var poz5col2 = (Number(poz4col3) + Number(poz5col4)) / procent;
+      document.getElementById('poz'+(i+1)+'col2').innerHTML = poz5col2.toFixed(2);
+      var poz5col3 = Number(poz4col3) + poz5col2;
+      document.getElementById('poz'+(i+1)+'col3').innerHTML = poz5col3.toFixed(2);
+      var poz5col5 = poz5col2 * procent;
+      document.getElementById('poz'+(i+1)+'col5').innerHTML = poz5col5.toFixed(2);
+    }
   }
 
   </script>

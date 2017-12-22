@@ -34,7 +34,7 @@ function createWindow() {
     win = null;
   });
 }
-
+//Create Main Menu template
 const template = [
   {
     label: 'File',

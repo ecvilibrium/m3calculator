@@ -1,6 +1,7 @@
 const {
   app,
-  BrowserWindow
+  BrowserWindow,
+  Menu
 } = require('electron');
 const path = require('path');
 const url = require('url');
@@ -13,7 +14,7 @@ let win;
 function createWindow() {
   //Create browser window
   win = new BrowserWindow({
-    width: 800,
+    width: 700,
     height: 600,
   });
   //and load the index.html of the app
@@ -22,13 +23,32 @@ function createWindow() {
     protocol: 'file:',
     slashes: true
   }));
+  //Buid Main menu
+  const menu = Menu.buildFromTemplate(template)
+  Menu.setApplicationMenu(menu)
+  console.log(Menu.getApplicationMenu())
   // Open the Devtools.
-  //win.webContents.openDevTools();
+  win.webContents.openDevTools();
   //Emmited when the window is closed.
   win.on('closed', () => {
     win = null;
   });
 }
+
+const template = [
+  {
+    label: 'File',
+    submenu: [
+      {
+        label: 'Quit',
+        click() {
+          app.quit();
+        }
+      },
+    ]
+  }
+];
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.

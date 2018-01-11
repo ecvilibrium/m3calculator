@@ -14,7 +14,7 @@ let win;
 function createWindow() {
   //Create browser window
   win = new BrowserWindow({
-    width: 700,
+    width: 470,
     height: 600,
   });
   //and load the index.html of the app
@@ -23,12 +23,9 @@ function createWindow() {
     protocol: 'file:',
     slashes: true
   }));
-  //Buid Main menu
-  const menu = Menu.buildFromTemplate(template)
-  Menu.setApplicationMenu(menu)
-  console.log(Menu.getApplicationMenu())
-  // Open the Devtools.
-  //win.webContents.openDevTools();
+  //Build Main menu
+  const menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
   //Emmited when the window is closed.
   win.on('closed', () => {
     win = null;
@@ -48,7 +45,23 @@ const template = [
     ]
   }
 ];
-
+// Open the Devtools & add menu item. if app not in production
+if(process.defaultApp === true){
+  template.push({
+    label: 'Developer Tools',
+    submenu: [
+      {
+      label: 'Toggle DevTools',
+      click(item, focusedWindow){
+        focusedWindow.toggleDevTools();
+      }
+    },
+    {
+      role: 'reload'
+    }
+    ]
+  });
+}
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
